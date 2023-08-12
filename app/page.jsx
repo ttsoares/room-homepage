@@ -77,11 +77,24 @@ export default function Home() {
             {IMGTXT[ind.current].title}
           </h1>
           <p className="text-gray-500 a">{IMGTXT[ind.current].content}</p>
-          <div className="flex mt-10">
+          <div className="flex mt-10 hover:text-gray-400">
             <Link href="/shop">
-              <p className="tracking-[1rem] mr-6">SHOP NOW</p>
+              <p className="tracking-[1rem] font-bold mr-6 ">SHOP NOW</p>
             </Link>
-            <Image src={arrow} alt="buy" width={40} height={10} />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-10 h-8 animate-shake animate-thrice animate-duration-[800ms] animate-delay-1000"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
           </div>
         </div>
       </div>
