@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-size: 12px;
+}
+
+.bm-burger-button {
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+.bm-cross-button {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 25px;
+  left: 220px;
+}
+
+.bm-cross {
+  background: black;
+}
+
+.bm-menu {
+  background: white;
+  padding: 0.3rem 0.3rem 0;
+  font-size: 1.15em;
+  width: 17rem;
+}
+
+.bm-item-list {
+  color: black;
+  padding: 0.8em;
+}
+
+.bm-item {
+  display: inline-block;
+}
+
+.bm-overlay {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,80 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+export const MENU_LIST = [
+  { text: "Home", href: "/" },
+  { text: "Shop", href: "/shop" },
+  { text: "About", href: "/about" },
+  { text: "Contact", href: "/contact" },
+];
+
+const Header = () => {
+  const [showMenu, setShowMenu] = useState(true);
+
+  return (
+    <>
+      {/* Burger menu */}
+      <div className="flex w-full  bg-white md:hidden items-center ">
+        {showMenu ? (
+          <div
+            className="h-20 pr-20 ml-10 flex items-center animate-flip-down animate-delay-300 animate-once"
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <Image src="/icon-close.svg" alt="menu" width={20} height={20} />
+          </div>
+        ) : (
+          <div
+            className="h-20 w-full ml-10 flex items-center animate-flip-up animate-delay-300 animate-once"
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <Image
+              src="/icon-hamburger.svg"
+              alt="menu"
+              width={20}
+              height={20}
+            />
+          </div>
+        )}
+
+        {showMenu && (
+          <div className="w-full ">
+            <div className="mt-5 ml-8 font-bold flex space-x-12 animate-jump-in animate-delay-300 animate-once">
+              {MENU_LIST.map((item, index) => (
+                <div key={index} className="mb-5 text-black">
+                  <Link href={item.href}>{item.text}</Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+      {/* desktop menu */}
+      <div className="hidden md:block absolute top-10 left-0 w-full md:w-[600px] h-28 bg-transparent z-10">
+        <div className="flex justify-start w-full ">
+          <div className="hidden lg:block p-3 ml-[25%] md:ml-5 ">
+            <Image src="/logo.svg" alt="logo" width={65} height={65} />
+          </div>
+
+          <div className="hidden  md:flex">
+            {MENU_LIST.map((item, index) => (
+              <div
+                className="flex flex-col justify-center items-center"
+                key={index}
+              >
+                <div className="mx-7 mb-3 h-3 text-white text-lg peer hover:cursor-pointer">
+                  <Link href={item.href}>{item.text}</Link>
+                </div>
+                <div className="mx-4 w-4 h-1 bg-white rounded-lg invisible peer-hover:visible"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Header;
